@@ -1,0 +1,246 @@
+[
+{
+  "model": "courses.subject",
+  "pk": 1,
+  "fields": {
+    "title": "Programming",
+    "slug": "programming"
+  }
+},
+{
+  "model": "courses.subject",
+  "pk": 2,
+  "fields": {
+    "title": "Physics",
+    "slug": "physics"
+  }
+},
+{
+  "model": "courses.subject",
+  "pk": 3,
+  "fields": {
+    "title": "Biology",
+    "slug": "biology"
+  }
+},
+{
+  "model": "courses.subject",
+  "pk": 4,
+  "fields": {
+    "title": "Mathematics",
+    "slug": "mathematics"
+  }
+},
+{
+  "model": "courses.subject",
+  "pk": 5,
+  "fields": {
+    "title": "Graphic Designing",
+    "slug": "graphic-designing"
+  }
+},
+{
+  "model": "courses.coursetest",
+  "pk": 1,
+  "fields": {
+    "title": "Test1"
+  }
+},
+{
+  "model": "courses.coursetest",
+  "pk": 2,
+  "fields": {
+    "title": "Test2"
+  }
+},
+{
+  "model": "courses.coursetest",
+  "pk": 3,
+  "fields": {
+    "title": "Test3"
+  }
+},
+{
+  "model": "courses.group",
+  "pk": 1,
+  "fields": {
+    "name": "Programming Group",
+    "members": [
+      1
+    ]
+  }
+},
+{
+  "model": "courses.group",
+  "pk": 2,
+  "fields": {
+    "name": "Designing Group",
+    "members": [
+      1
+    ]
+  }
+},
+{
+  "model": "courses.group",
+  "pk": 3,
+  "fields": {
+    "name": "Mathematics Group",
+    "members": [
+      1
+    ]
+  }
+},
+{
+  "model": "courses.course",
+  "pk": 1,
+  "fields": {
+    "owner": 1,
+    "subject": 5,
+    "title": "Photoshop",
+    "slug": "photoshop",
+    "overview": "This course deals with teaching you all the essential tools of Photoshop and using your skills in print and designs.",
+    "group": 2,
+    "duration": "1 06:00:00",
+    "file": "",
+    "preview": "",
+    "email": "coursepro@elearn.com",
+    "rating": "4.5",
+    "test": 1,
+    "score": 8,
+    "trending": true,
+    "created": "2019-06-20T15:58:35.776Z"
+  }
+},
+{
+  "model": "courses.course",
+  "pk": 2,
+  "fields": {
+    "owner": 1,
+    "subject": 1,
+    "title": "Python and Django",
+    "slug": "python-and-django",
+    "overview": "Start with learning the basics of Python and make your own web applications like a pro using its popular web framework Django.",
+    "group": 1,
+    "duration": "6 06:00:00",
+    "file": "",
+    "preview": "",
+    "email": "coursepro@elearn.com",
+    "rating": "4.8",
+    "test": 2,
+    "score": 9,
+    "trending": true,
+    "created": "2019-06-20T16:11:11.624Z"
+  }
+},
+{
+  "model": "courses.course",
+  "pk": 3,
+  "fields": {
+    "owner": 1,
+    "subject": 4,
+    "title": "Mathematics for Machine Learning",
+    "slug": "mathematics-machine-learning",
+    "overview": "Machine learning (ML) is the scientific study of algorithms and statistical models that computer systems use in order to perform a specific task effectively without using explicit instructions, relying on patterns and inference instead. It is seen as a subset of artificial intelligence. And, mathematics is inseparable when dealing with this topic. So, be prepared to play with data.",
+    "group": 3,
+    "duration": "5 00:00:00",
+    "file": "",
+    "preview": "",
+    "email": "coursepro@elearn.com",
+    "rating": "4.3",
+    "test": 3,
+    "score": 8,
+    "trending": false,
+    "created": "2019-06-20T16:19:49.008Z"
+  }
+},
+{
+  "model": "courses.module",
+  "pk": 1,
+  "fields": {
+    "course": 1,
+    "title": "Module 1",
+    "description": "This is the beginner module.",
+    "order": 0
+  }
+},
+{
+  "model": "courses.module",
+  "pk": 2,
+  "fields": {
+    "course": 1,
+    "title": "Module 2",
+    "description": "This is the intermediate module.",
+    "order": 1
+  }
+},
+{
+  "model": "courses.module",
+  "pk": 3,
+  "fields": {
+    "course": 1,
+    "title": "Module 3",
+    "description": "This is the advanced module.",
+    "order": 2
+  }
+},
+{
+  "model": "courses.module",
+  "pk": 4,
+  "fields": {
+    "course": 2,
+    "title": "Module 1",
+    "description": "This is the beginner module.",
+    "order": 0
+  }
+},
+{
+  "model": "courses.module",
+  "pk": 5,
+  "fields": {
+    "course": 2,
+    "title": "Module 2",
+    "description": "This is the intermediate module.",
+    "order": 1
+  }
+},
+{
+  "model": "courses.module",
+  "pk": 6,
+  "fields": {
+    "course": 2,
+    "title": "Module 3",
+    "description": "This is the advanced module.",
+    "order": 2
+  }
+},
+{
+  "model": "courses.module",
+  "pk": 7,
+  "fields": {
+    "course": 3,
+    "title": "Module 1",
+    "description": "This is the beginner module.",
+    "order": 0
+  }
+},
+{
+  "model": "courses.module",
+  "pk": 8,
+  "fields": {
+    "course": 3,
+    "title": "Module 2",
+    "description": "This is the intermediate module.",
+    "order": 1
+  }
+},
+{
+  "model": "courses.module",
+  "pk": 9,
+  "fields": {
+    "course": 3,
+    "title": "Module 3",
+    "description": "This is the advanced module.",
+    "order": 2
+  }
+}
+]
