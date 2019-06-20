@@ -3,6 +3,8 @@ from django.contrib.auth.models import User
 from django.contrib.contenttypes.models import ContentType
 from django.contrib.contenttypes.fields import GenericForeignKey
 
+from .fields import OrderField
+
 
 class Subject(models.Model):
     title = models.CharField(max_length=200)
@@ -40,19 +42,19 @@ class Course(models.Model):
                                 on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
     slug = models.SlugField(max_length=200, unique=True)
-    overview = models.TextField()
+    overview = models.TextField(max_length=600)
     group = models.ForeignKey(Group,
                               related_name='group_study',
                               on_delete=models.CASCADE)
-    duration = models.DurationField()
+    duration = models.DurationField(default='30:00:00')
     file = models.FileField(blank=True)
     preview = models.ImageField(blank=True)
-    email = models.EmailField(max_length=200)
+    email = models.EmailField(max_length=200, blank=True)
     rating = models.DecimalField(max_digits=3, decimal_places=1)
     test = models.OneToOneField(CourseTest,
                                 related_name='course_test',
                                 on_delete=models.CASCADE)
-    score = models.IntegerField(blank=True)
+    score = models.IntegerField()
     trending = models.BooleanField(blank=True)
     created = models.DateTimeField(auto_now_add=True)
 
@@ -69,9 +71,13 @@ class Module(models.Model):
                                on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
     description = models.TextField(blank=True)
+    order = OrderField(blank=True, for_fields=['course'])
+
+    class Meta:
+        ordering = ['order']
 
     def __str__(self):
-        return self.title
+        return '{}. {}'.format(self.order, self.title)
 
 
 class Content(models.Model):
@@ -79,9 +85,17 @@ class Content(models.Model):
                                related_name='contents',
                                on_delete=models.CASCADE)
     content_type = models.ForeignKey(ContentType,
-                                     on_delete=models.CASCADE)
+                                     on_delete=models.CASCADE,
+                                     limit_choices_to={'model__in': ('text',
+                                                                     'video',
+                                                                     'image',
+                                                                     'file')})
     object_id = models.PositiveIntegerField()
     item = GenericForeignKey('content_type', 'object_id')
+    order = OrderField(blank=True, for_fields=['module'])
+
+    class Meta:
+        ordering = ['order']
 
 
 class ItemBase(models.Model):
