@@ -19,4 +19,13 @@
         </form>
     </div>
 </div>
+<div class="social">
+    <ul>
+        <li class="linkedin">
+            <a href="{% url 'social:begin' backend='linkedin-oauth2' %}">
+                Login with Linkedin
+            </a>
+        </li>
+    </ul>
+</div>
 {% endblock %}
