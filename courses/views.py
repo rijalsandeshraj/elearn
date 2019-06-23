@@ -85,13 +85,13 @@ class ContentCreateUpdateView(TemplateResponseMixin, View):
         Building a dynamic form using the 'modelform_factory()' function
         of the form's framework.
         """
-        Form = modelform_factory(model, exclude=['owner',
+        form = modelform_factory(model, exclude=['owner',
                                                  'order',
                                                  'created',
                                                  'updated'])
-        return Form(*args, **kwargs)
+        return form(*args, **kwargs)
 
-    def dispatch(self, request, module_id, model_name, id=None):
+    def dispatch(self, request, module_id, model_name):
         self.module = get_object_or_404(Module,
                                         id=module_id,
                                         course__owner=request.user)
@@ -102,7 +102,7 @@ class ContentCreateUpdateView(TemplateResponseMixin, View):
         return super(ContentCreateUpdateView,
                      self).dispatch(request, module_id, model_name, id)
 
-    def get(self, request, module_id, model_name, id=None):
+    def get(self, request, module_id, model_name):
         """
         Executed when a GET request is received.
         """
@@ -110,7 +110,7 @@ class ContentCreateUpdateView(TemplateResponseMixin, View):
         return self.render_to_response({'form': form,
                                         'object': self.obj})
 
-    def post(self, request, module_id, model_name, id=None):
+    def post(self, request, module_id, model_name):
         """
         Executed when a POST request is received.
         """
@@ -134,7 +134,7 @@ class ContentCreateUpdateView(TemplateResponseMixin, View):
 
 class ContentDeleteView(View):
 
-    def post(self, request, id):
+    def post(self, request):
         content = get_object_or_404(Content,
                                     id=id,
                                     module__course__owner=request.user)

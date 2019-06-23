@@ -47,8 +47,6 @@ class Course(models.Model):
                               related_name='group_study',
                               on_delete=models.CASCADE)
     duration = models.DurationField(default='30:00:00')
-    file = models.FileField(blank=True)
-    preview = models.ImageField(blank=True)
     email = models.EmailField(max_length=200, blank=True)
     rating = models.DecimalField(max_digits=3, decimal_places=1)
     test = models.OneToOneField(CourseTest,
