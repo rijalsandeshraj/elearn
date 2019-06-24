@@ -26,8 +26,13 @@ urlpatterns = [
     path('social-auth/', include('social_django.urls', namespace='social')),
     path('courses/', include('courses.urls')),
 
+<<<<<<< HEAD
     path('', CourseListView.as_view(), name='course_list'),
 
     # for 'students' app
     path('students/', include('students.urls')),
+=======
+    # for REST API
+    path('api/', include('courses.api.urls', namespace='api')),
+>>>>>>> 59e003f6da416997a2423ff6d8b70ac2132797db
 ]

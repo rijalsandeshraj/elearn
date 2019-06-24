@@ -44,7 +44,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # third_party_apps
+<<<<<<< HEAD
     'crispy_forms',
+=======
+    'rest_framework',
+>>>>>>> 59e003f6da416997a2423ff6d8b70ac2132797db
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -130,3 +134,9 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 LOGIN_REDIRECT_URL = '/courses/mine/'
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticatedOrReadOnly',
+    ]
+}
