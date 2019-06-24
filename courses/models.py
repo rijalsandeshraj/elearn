@@ -24,15 +24,6 @@ class CourseTest(models.Model):
         return self.title
 
 
-class Group(models.Model):
-    name = models.CharField(max_length=200)
-    members = models.ManyToManyField(User,
-                                     related_name='students_group')
-
-    def __str__(self):
-        return self.name
-
-
 class Course(models.Model):
     owner = models.ForeignKey(User,
                               related_name='courses_created',
@@ -43,9 +34,9 @@ class Course(models.Model):
     title = models.CharField(max_length=200)
     slug = models.SlugField(max_length=200, unique=True)
     overview = models.TextField(max_length=600)
-    group = models.ForeignKey(Group,
-                              related_name='group_study',
-                              on_delete=models.CASCADE)
+    students = models.ManyToManyField(User,
+                                      related_name='courses_joined',
+                                      blank=True)
     duration = models.DurationField(default='30:00:00')
     email = models.EmailField(max_length=200, blank=True)
     rating = models.DecimalField(max_digits=3, decimal_places=1)
