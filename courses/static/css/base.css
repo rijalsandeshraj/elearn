@@ -69,6 +69,7 @@ h1 {
 
 #header .menu {
     list-style: none;
+    overflow: auto;
     float: right;
     margin: 0;
     padding: 0;
