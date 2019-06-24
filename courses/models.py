@@ -4,6 +4,7 @@ from django.contrib.contenttypes.models import ContentType
 from django.contrib.contenttypes.fields import GenericForeignKey
 
 from .fields import OrderField
+from .validators import validate_image_size
 
 
 class Subject(models.Model):
@@ -120,7 +121,8 @@ class File(ItemBase):
 
 
 class Image(ItemBase):
-    file = models.FileField(upload_to='images')
+    file = models.ImageField(upload_to='images',
+                             validators=[validate_image_size])
 
 
 class Video(ItemBase):
