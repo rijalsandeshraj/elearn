@@ -23,4 +23,7 @@ urlpatterns = [
     path('accounts/logout/', auth_views.LogoutView.as_view(), name='logout'),
     path('social-auth/', include('social_django.urls', namespace='social')),
     path('courses/', include('courses.urls')),
+
+    # for REST API
+    path('api/', include('courses.api.urls', namespace='api')),
 ]
